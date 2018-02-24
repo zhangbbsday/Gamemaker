@@ -9,6 +9,7 @@ enum PlayerDirection  //人物朝向
 }
 
 m_PlayerDirection = PlayerDirection.RIGHT;
+
 m_isWalking = false;
 m_isAtking = false;
 m_isDead = false;

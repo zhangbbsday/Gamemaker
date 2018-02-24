@@ -5,7 +5,8 @@
   </Configs>
   <NewExtensions/>
   <sounds name="sound">
-    <sound>sound\battle</sound>
+    <sound>sound\sd_battle</sound>
+    <sound>sound\sd_click</sound>
   </sounds>
   <sprites name="sprites">
     <sprites name="landfrom">
@@ -31,9 +32,14 @@
     </sprites>
     <sprites name="other">
       <sprite>sprites\spr_atkbox</sprite>
+      <sprites name="button">
+        <sprite>sprites\spr_button</sprite>
+      </sprites>
     </sprites>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_start</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
     <scripts name="role">
@@ -73,14 +79,19 @@
       <scripts name="control">
         <script>scripts\ControlDrawHp.gml</script>
         <script>scripts\ControlCreate.gml</script>
+        <script>scripts\ControlDrawText.gml</script>
       </scripts>
     </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\ft_en</font>
+  </fonts>
   <objects name="objects">
     <objects name="class">
       <object>objects\obj_class_dynamic</object>
       <object>objects\obj_class_base</object>
       <object>objects\obj_class_statics</object>
+      <object>objects\obj_class_atkbox</object>
     </objects>
     <objects name="landfrom">
       <object>objects\obj_landfrom_ground</object>
@@ -100,10 +111,13 @@
     </objects>
     <objects name="other">
       <object>objects\obj_control</object>
+      <object>objects\obj_start_control</object>
       <object>objects\obj_enemy_test</object>
+      <object>objects\obj_button</object>
     </objects>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_start</room>
     <room>rooms\rm_1</room>
   </rooms>
   <help>

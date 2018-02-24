@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_class_dynamic</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -49,8 +49,7 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>m_OnDamage = false;
-m_Stop = false;
+            <string>AtkHard();
 </string>
           </argument>
         </arguments>
