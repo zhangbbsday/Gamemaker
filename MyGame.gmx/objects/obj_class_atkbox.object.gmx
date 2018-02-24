@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>AtkBoxCreate();
+            <string>//攻击碰撞盒子初始化
+phy_fixed_rotation = 1;
+m_Parent = noone;
 </string>
           </argument>
         </arguments>

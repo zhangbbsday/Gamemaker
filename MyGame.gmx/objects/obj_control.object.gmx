@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>ControlCreate();
+            <string>//控制台初始化
+m_Role = noone;
 </string>
           </argument>
         </arguments>

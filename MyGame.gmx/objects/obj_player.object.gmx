@@ -25,7 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PlayerCreate();
+            <string>//初始化
+vspeed = 8;
+hspeed = 3;
+
+m_isJumping_Up = false;
+m_isJumping_Down = false;
+m_isLanding = true;
+m_JumpDistance = 100;  //最大跳跃高度
+m_CanAtk = true;
+m_Hp = 10;
+m_HpMax = 10;
+m_Dps = 2;
+m_AtkBox = noone;
+
 event_inherited();
 </string>
           </argument>
@@ -72,7 +85,7 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PlayerAtkRate();
+            <string>RoleAtkRate();
 </string>
           </argument>
         </arguments>
@@ -118,7 +131,36 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PlayerStep();
+            <string>{  
+//死亡
+    PlayerDead(); 
+//死亡停止操作
+    if (m_isDead)
+    {
+        if (m_DeadAnimation)
+        {
+            image_index = 2;
+        }      
+        return 0;
+    }
+    
+    if (m_OnDamage)
+    {
+        if (!m_Stop)
+        {   
+            alarm[2] = 20;
+        }
+        
+        m_Stop = true;
+    }
+    
+//移动和待机
+    PlayerWalk();
+//跳跃
+    PlayerJump();
+//攻击
+    PlayerAtk();
+}
 </string>
           </argument>
         </arguments>
@@ -141,7 +183,9 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PlayerLand();
+            <string>//人物是否着地
+m_isLanding = true;
+m_isJumping_Down = false;
 </string>
           </argument>
         </arguments>
@@ -164,7 +208,7 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>PlayerAnimationEnd();
+            <string>event_inherited();
 </string>
           </argument>
         </arguments>

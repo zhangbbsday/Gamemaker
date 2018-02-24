@@ -25,7 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>EnemyCreate();
+            <string>//初始化
+hspeed = 1;
+
+m_CanAtk = true;    //是否可以攻击
+m_AtkDistance = 20;
+m_Hp = 5;
+m_HpMax = 5;
+m_AtkBox = noone;
+m_Dps = 2;
+
 event_inherited();
 </string>
           </argument>
@@ -72,7 +81,7 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>EnemyAtkRate();
+            <string>RoleAtkRate();
 </string>
           </argument>
         </arguments>
@@ -118,7 +127,35 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>EnemyStep();
+            <string>{
+//死亡停止操作
+    if (m_isDead)
+    {
+        return 0;
+    }
+//死亡
+    EnemyDead();   
+     
+    if (m_isHard &amp;&amp; m_OnDamage)
+    {
+        if (!m_Stop)
+        {   
+            alarm[2] = 10;
+            image_speed = 0;
+        }
+        
+        m_Stop = true;
+        return 0;
+    }
+    
+//移动和待机
+    EnemyWalk();
+//攻击
+    if (m_CanAtk)
+    {
+        EnemyAtk();
+    }
+}   
 </string>
           </argument>
         </arguments>
@@ -163,7 +200,7 @@ event_inherited();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>EnemyAnimationEnd();
+            <string>event_inherited();
 </string>
           </argument>
         </arguments>
